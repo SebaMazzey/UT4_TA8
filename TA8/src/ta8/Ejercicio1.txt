@@ -1,0 +1,78 @@
+Lenguaje Natural :
+El algoritmo devolverá la etiqueta anterior inmediata a una clave dada.
+Si el árbol está vacio o no encuentra la clava dada, el método devolverá una referencia nula. 
+
+Precondiciones:
+	- La clave dada, no debe de ser nula.
+	- Están definidos los métodos : 
+	- Árbo.listaInOrden
+	- indexOf
+	- get (devuelve la referencia a un elemento dada su índice en la lista)
+
+Postcondiciones:
+	-Si se pide la referencia inmediata anterior al primer elemento , se retorornará una referencia nula.
+	-El algoritmo no debe de cambiar el estado del árbol.
+	-El algoritmo retornará un Comparable en caso de que exista la clave dada, y que exista además su inmediata anterior.
+
+TArbolBB.anterior(Comparable clave) : Comparable 
+INICIO
+	Si raiz = NULO ENTONCES
+		RETORNAR NULO
+	FIN SI
+	SI raiz.hijoDer = NULO AND raiz.hijoIzq = NULO ENTONCES
+		RETORNAR NULO
+	FIN SI
+	Lista inOrden <- this.listaInOrden()
+	Int indice <- inOrden.indexOf(clave)
+	SI (indice <> 0 AND indice <> -1) ENTONCES
+		RETORNAR inOrden.get(indice -1).etiqueta
+	FIN SI
+	RETORNAR NULO 
+FIN
+
+Suma  de las claves en un nivel (Árbol)
+Lenguaje Natural:
+A través de un árbol comenzaremos verificando que nuestro árbol no sea vacío o que el nivel
+pasado por parámetro no sea menor a cero. Comenzaremos viendo que si el nivel es 0 devuelve 
+automaticamente la etiqueta del dato. Si esto no es así tendremos una variable donde guardaremos
+la suma de la invocacion recursiva del metodo en sus hijos pasandoles el nivel menos 1 unidad. 
+si no se encuentra el nivel se devuelve 0. 
+
+Precondiciones:
+* El nivel pasado por parámetro debe ser entero.
+
+Postcondiciones:
+* El valor devuelto es la suma de las etiquetas en el nivel indicado.
+* El árbol no se ve modificado.
+* Si el nivel ingresado es negativo o el arbol esta vacio, se retorna -1.
+* Si en el nivel ingresado no existen TElementos pero el arbol no esta vacio, se retorna 0.
+
+PSEUDOCÓDIGO
+Tipo ArbolBB.sumaClaves(Tipo Integer nivel) devuelve Tipo Integer
+INICIO
+
+	SI (raiz = nulo OR nivel < 0) ENTONCES
+		DEVOLVER -1
+	SINO
+		DEVOLVER raiz.sumaClaves(nivel)
+	FIN SI
+FIN
+
+PSEUDOCÓDIGO
+Tipo TElementoAB.sumaClaves(Tipo Integer nivel) devuelve Tipo Integer
+INICIO
+
+	Si (nivel = 0) ENTONCES
+		DEVOLVER etiqueta
+	FIN SI
+
+	Integer cuenta <- 0
+	SI (hijoIzq <> nulo) ENTONCES
+		cuenta <- cuenta + hijoIzq.sumaClaves(nivel-1)
+	FIN SI
+	SI (hijoDer <> nulo) ENTONCES
+		cuenta <- cuenta + hijoDer.sumaClaves(nivel-1)
+	FIN SI
+
+	DEVOLVER cuenta
+FIN
