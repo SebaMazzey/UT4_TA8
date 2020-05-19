@@ -22,13 +22,13 @@ INICIO
 	SI raiz.hijoDer = NULO AND raiz.hijoIzq = NULO ENTONCES
 		RETORNAR NULO
 	FIN SI
-	Lista inOrden <- this.listaInOrden()
-	Int indice <- inOrden.indexOf(clave)
+	Lista inOrden <- this.listaInOrden()    //O(N)
+	Int indice <- inOrden.indexOf(clave)    //O(N)
 	SI (indice <> 0 AND indice <> -1) ENTONCES
-		RETORNAR inOrden.get(indice -1).etiqueta
+		RETORNAR inOrden.get(indice -1).etiqueta    //O(N)
 	FIN SI
 	RETORNAR NULO 
-FIN
+FIN     Método es //O(N)
 
 Suma  de las claves en un nivel (Árbol)
 Lenguaje Natural:
@@ -54,13 +54,13 @@ INICIO
 	SI (raiz = nulo OR nivel < 0) ENTONCES
 		DEVOLVER -1
 	SINO
-		DEVOLVER raiz.sumaClaves(nivel)
+		DEVOLVER raiz.sumaClaves(nivel) O(N)
 	FIN SI
 FIN
 
 PSEUDOCÓDIGO
 Tipo TElementoAB.sumaClaves(Tipo Integer nivel) devuelve Tipo Integer
-INICIO
+INICIO  O(N) Método es lineal, dado que recorre cada nodo del árbol
 
 	Si (nivel = 0) ENTONCES
 		DEVOLVER etiqueta

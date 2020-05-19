@@ -1,0 +1,55 @@
+Desarrolla en lenguaje natural o seudocódigo abstracto una especificación de casos de prueba
+para el método de Obtener el Elemento cuya clave sea la inmediata anterior a una clave dada
+pasada por parámetro.
+
+ArbolAB.claveAnterior()
+
+Precondiciones
+
+- Existe un arbol binario valido.
+- El método recibe una clave válida por parámetro.
+
+Postcondiciones
+
+-Se devuelve una clave lexicograficamente anterior a la pasada por parametro.
+-Si el arbol es vacio, el resultado es siempre nulo.
+-Si el arbol tiene un solo elemento (la raiz) se devuelve nulo.
+-Si se pide la clave anterior a la menor del árbol, se devuelve nulo.
+-Si se pide el anterior a una clave no presente, se devuelve nulo.
+-No cambia el estado del arbol.
+
+Lenguaje natural de tests
+
+TEST arbolVacio: Se crea un arbol, y se llama al metodo claveAnterior con una clave al azar. Se verifica que el resultado sea nulo.
+TEST arbolUnElem: Se crea un arbol, se le agrega un solo elemento, y se llama al metodo claveAnterior con esa misma clave pasada por parametro.
+Se verifica que el resultado sea nulo.
+TEST arbolDosElem: Se crea un arbol, se le agregan los nodos 1, 2 y se verifica que el resultado de la llamada ArbolAB.claveAnterior(2) sea 1.
+TEST anteriorMenor: Se crea un arbol, se le agregan los nodos 1, 2 y se verifica que el resultado de la llamada ArbolAB.claveAnterior(1) sea nulo.
+TEST arbolTresElem: Se crea un arbol, se le agregan los elementos 1, 2, 3 (en cualquier orden). Se llama al método ArbolAB.claveAnterior(3).Deberia ser 2.
+
+Desarrolla en lenguaje natural o seudocódigo abstracto una especificación de casos de prueba
+para el método de Obtener la suma de las claves de los Elementos que se encuentren en un
+cierto nivel, pasado por parámetro.
+
+ArbolAB.sumaClaves()
+
+Precondiciones
+
+- Existe un arbol binario valido.
+- El nivel pasado por parámetro debe ser entero.
+
+Postcondiciones
+
+-Se devuelve un numero entero equivalente a la suma de las claves en el nivel pasado por parametro.
+-Si el nivel ingresado es negativo o el arbol esta vacio, se retorna -1.
+-Si en el nivel ingresado no existen TElementos pero el arbol no esta vacio, se retorna 0.
+
+
+Lenguaje natural de tests
+
+TEST arbolVacio: Se crea un arbol, y se llama al metodo sumaClaves(1). Se verifica que el resultado sea -1.
+TEST nivelNegativo: Se crea un arbol, se agrega un elemento y se llama al metodo sumaClaves(-1). Se verifica que el resultado sea -1.
+TEST arbolUnElem: Se crea un arbol, se le agrega un solo elemento, y se llama al metodo sumaClaves(1). Se verifica que el resultado sea igual a la unica etiqueta pasada.
+TEST arbolDosElem: Se crea un arbol, se le agregan los nodos 1, 2 (en ese orden) y se verifica que el resultado de la llamada sumaClaves(2) sea 2.
+TEST arbolTresElem: Se crea un arbol, se le agregan los nodos 2, 1, 3 (en ese orden) y se verifica que el resultado de la llamada sumaClaves(2) sea 4.
+
